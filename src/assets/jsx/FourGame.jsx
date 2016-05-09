@@ -51,7 +51,7 @@ module.exports = React.createClass({
 
     },
 
-    buttonClickHandler: function(){
+    gameStateButtonClickHandler: function(){
         if(this.state.gameState == 0){
             this.initializeGame();
         }else if(this.state.gameState == 1){
@@ -81,6 +81,7 @@ module.exports = React.createClass({
 
     render: function() {
         var res = [];
+        var btn = '';
         var activeID = this.state.activeTileX +"."+this.state.activeTileY;
 
         // Fill Tiles with Components
@@ -110,14 +111,24 @@ module.exports = React.createClass({
         }
 
 
+
+        if(this.state.gameState == 1){
+            btn = <button className="button" onClick={this.gameStateButtonClickHandler}>
+                    {this.state.btnText}
+                  </button>
+
+        }
+
+
         return (
             <div className="game-canvas">
                 <div className="tiles">
                     {res}
                 </div>
-                <button className="button" onClick={this.buttonClickHandler}>
+                <button className="button" onClick={this.gameStateButtonClickHandler}>
                     {this.state.btnText}
                 </button>
+                {btn}
 
                 <ul className="debug">
                     <li>Game State: {this.state.gameState}</li>
