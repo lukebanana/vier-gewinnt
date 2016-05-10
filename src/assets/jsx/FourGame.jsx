@@ -36,6 +36,13 @@ module.exports = React.createClass({
         this.setState({
             gameState : 0,
             btnText : 'Start Game',
+            rows : 6,
+            cols: 7,
+            tileHeight: 20,
+            tileWidth: 20,
+            activeTileX: null,
+            activeTileY: null,
+            playerID: 0
         });
     },
 

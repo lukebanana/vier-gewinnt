@@ -11,13 +11,13 @@ module.exports = React.createClass({
 
 
     onClickHandler: function(){
-        if( this.props.activeID != (this.props.tileX+"."+this.props.tileY) ){
+        if( this.props.activeTile != (this.props.tileX+"."+this.props.tileY) ){
             this.props.setActiveTile(this.props.tileX, this.props.tileY);
         }
     },
 
     render: function() {
-        this.state.reservedByPlayer = ( this.props.activeID == (this.props.tileX+"."+this.props.tileY) );
+        this.state.reservedByPlayer = ( this.props.activeTile == (this.props.tileX+"."+this.props.tileY) );
 
         var reseveredClass = '';
         if(this.state.reservedByPlayer){
@@ -32,3 +32,4 @@ module.exports = React.createClass({
         );
     }
 });
+
